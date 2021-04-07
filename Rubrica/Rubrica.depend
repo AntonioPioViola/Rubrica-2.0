@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1617807217 source:c:\users\anton\desktop\code-bloxks\tipsit\rubrica\main.cpp
+	<iostream>
+	<fstream>
+	<iomanip>
+	"Funzioni.h"
+	<string>
+
+1617807480 c:\users\anton\desktop\code-bloxks\tipsit\rubrica\include\funzioni.h
+	<iostream>
+	<fstream>
+
+1617807480 source:c:\users\anton\desktop\code-bloxks\tipsit\rubrica\src\funzioni.cpp
+	"Funzioni.h"
+

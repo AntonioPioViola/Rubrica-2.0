@@ -49,6 +49,14 @@ int main()
 				scriviSuFile(contatto, indice_contatti);
 				break;
 				}
+				case 2: leggiDaFile();
+				break;
+
+				case 3: {
+				 int codice_da_trovare = chiediCodice ( );
+                cercaContatto ( codice_da_trovare );
+				}
+				break;
 		}
 	} while(scelta != 0);
 

@@ -52,20 +52,63 @@ void scriviSuFile(Rubrica contatto[], int indice_contatti) {
 		cout<<"File Rubrica.dat non creato"<< endl;
 }
 
+void leggiDaFile() {
+	fstream f_in("Rubrica.dat", ios::in | ios::binary);
+	Rubrica elemento;
+
+	if(f_in) {
+		while( f_in.read((char*) &elemento, sizeof(elemento)) ) {
+			stampa(elemento);
+		}
+		f_in.close();
+	}
+	else
+		cout<<"il file Rubrica.dat non esiste"<< endl;
+}
+
+void stampa(Rubrica elemento) {
+		cout << "----------------" << endl;
+		cout << "Contatto n. "<< elemento.codiceContatto <<endl;
+		cout << "Nome   : " << elemento.nome <<endl;
+		cout << "Cognome: " << elemento.cognome <<endl;
+		cout << "Numero di telefono : " << elemento.n_telefono <<endl;
+}
+
+
+void cercaContatto(int codice) {
+	fstream f_in("Rubrica.dat", ios::in | ios::binary);
+	Rubrica elemento;
+
+	if(f_in) {
+		while( f_in.read((char*) &elemento, sizeof(elemento)) ) {
+			if(elemento.codiceContatto==codice) {
+				cout << "Elemento trovato!" << endl;
+				stampa(elemento);
+				break;
+			}
+
+		}
+		f_in.close();
+	}
+	else
+		cout<<"il file Rubrica.dat non esiste"<< endl;
+}
 
 int menu() {
 
 	char scelta;
     cout << "\nMENU CONTATTI";
     cout << "\n1. Inserimento contatto";
+    cout << "\n2. Stampa rubrica";
+    cout << "\n3. Ricerca contatto";
     cout << "\n0. ESCI\n";
 
 	// con il seguente ciclo ci assicuriamo che l'utente inserisca
-	// un carattere compreso tra '0' e '1'
+	// un carattere compreso tra '0' e '3'
 	do {
-		cout<<"inserisci un numero compreso tra 0 e 1\n";
+		cout<<"inserisci un numero compreso tra 0 e 3\n";
 		cin>>scelta;
-	} while(scelta <48 || scelta >50);
+	} while(scelta <48 || scelta >52);
 
 	// la differenza scelta - '0' sarà un numero intero compreso tra  0 e 8
 	return scelta - '0';
@@ -77,4 +120,12 @@ int chiediNumeroContatti()  {
     cin >> nun_contatti;
 	cout << endl;
 	return nun_contatti;
+}
+
+int chiediCodice()
+{
+     int codice;
+     cout <<"Inserire qui il codice del contatto : ";
+     cin>>codice;
+     return codice;
 }

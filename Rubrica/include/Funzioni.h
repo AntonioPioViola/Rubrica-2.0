@@ -16,6 +16,10 @@ struct Rubrica {
 
 void inserimento(Rubrica contatto[], int &indice_contatti, int contatti_da_inserire);
 void scriviSuFile(Rubrica contatto[], int indice_contatti);
+void leggiDaFile();
+int chiediCodice() ;
+void cercaContatto(int codice) ;
+void stampa(Rubrica elemento);
 int menu();
 int chiediNumeroContatti();
 
