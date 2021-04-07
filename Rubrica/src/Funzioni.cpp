@@ -1,5 +1,17 @@
 #include "Funzioni.h"
 
+//! \class [FUNZIONI]
+
+//! \relates FUNZIONI
+/*! \fn inserimento(Rubrica contatto[], int &indice_contatti, int contatti_da_inserire)
+    \brief inserimento contatto
+    \param contatto ...
+    \param indice_contatti tiene traccia del numero del contatto
+    \param contatti_da_inserire la sua funzione e da contatore
+*/
+
+
+
 void inserimento(Rubrica contatto[], int &indice_contatti, int contatti_da_inserire) {
     char esci;
 	Rubrica elemento;
@@ -39,6 +51,13 @@ void inserimento(Rubrica contatto[], int &indice_contatti, int contatti_da_inser
 	}
 }
 
+//! \relates FUNZIONI
+/*! \fn scriviSuFile(Rubrica contatto[], int indice_contatti)
+    \brief scrittura contatto su file binario
+    \param contatto ...
+    \param indice_contatti tiene traccia del numero del contatto
+*/
+
 void scriviSuFile(Rubrica contatto[], int indice_contatti) {
 	fstream f_out("Rubrica.dat", ios::out | ios::binary);
 
@@ -51,6 +70,11 @@ void scriviSuFile(Rubrica contatto[], int indice_contatti) {
 	else
 		cout<<"File Rubrica.dat non creato"<< endl;
 }
+
+//! \relates FUNZIONI
+/*! \fn leggiDaFile()
+    \brief lettura contatti da file binario
+*/
 
 void leggiDaFile() {
 	fstream f_in("Rubrica.dat", ios::in | ios::binary);
@@ -66,6 +90,12 @@ void leggiDaFile() {
 		cout<<"il file Rubrica.dat non esiste"<< endl;
 }
 
+//! \relates FUNZIONI
+/*! \fn stampa(Rubrica elemento)
+    \brief Stampa a video il contatto
+    \param elemento contatto da stampare
+*/
+
 void stampa(Rubrica elemento) {
 		cout << "----------------" << endl;
 		cout << "Contatto n. "<< elemento.codiceContatto <<endl;
@@ -74,6 +104,11 @@ void stampa(Rubrica elemento) {
 		cout << "Numero di telefono : " << elemento.n_telefono <<endl;
 }
 
+//! \relates FUNZIONI
+/*! \fn cercaContatto(int codice)
+    \brief cerca il contatto nel file binario
+    \param codice del contatto da ricercare
+*/
 
 void cercaContatto(int codice) {
 	fstream f_in("Rubrica.dat", ios::in | ios::binary);
@@ -93,6 +128,12 @@ void cercaContatto(int codice) {
 	else
 		cout<<"il file Rubrica.dat non esiste"<< endl;
 }
+
+//! \relates FUNZIONI
+/*! \fn menu()
+    \brief viene messo a video il menu per effettuare le proprie scelte
+*/
+
 
 int menu() {
 
@@ -114,6 +155,11 @@ int menu() {
 	return scelta - '0';
 }
 
+//! \relates FUNZIONI
+/*! \fn chiediNumeroContatti()
+    \brief chiede quanti contatti si vogliano inserire
+*/
+
 int chiediNumeroContatti()  {
     int nun_contatti;
 	cout << "quanti contatti vuoi inserire? :";
@@ -121,6 +167,11 @@ int chiediNumeroContatti()  {
 	cout << endl;
 	return nun_contatti;
 }
+
+//! \relates FUNZIONI
+/*! \fn chiediCodice()
+    \brief chiede il codice univoco da assegnare al contatto
+*/
 
 int chiediCodice()
 {

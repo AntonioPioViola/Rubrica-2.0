@@ -30,6 +30,7 @@ using namespace std;
 
 int main()
 {
+      //! \brief main nel quale tutto accade
 
 	Rubrica contatto[MAX];
 
